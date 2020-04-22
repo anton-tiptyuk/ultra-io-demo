@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as Joi from '@hapi/joi';
 import * as dotenv from 'dotenv';
-import { extname } from 'path';
+import * as path from 'path';
 
 import { SnakeNamingStrategy } from '../db/SnakeNamingStrategy';
 
@@ -19,8 +19,8 @@ const DATABASE_SYNCHRONIZE = 'DATABASE_SYNCHRONIZE';
 const DATABASE_LOGGING = 'DATABASE_LOGGING';
 
 const DEFAULT_PORT = 3000;
-const ext = extname(__filename);
-const dbDir = `${__dirname}/../db`;
+const ext = path.extname(__filename);
+const dbDir = path.relative(process.cwd(), path.resolve(`${__dirname}/../db`));
 
 @Injectable()
 export class ConfigService {
