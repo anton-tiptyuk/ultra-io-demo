@@ -44,7 +44,7 @@ export class ConfigService {
       [DATABASE_LOGGING]: Joi.boolean().default(false),
     });
 
-    const { error, value } = schema.validate(config);
+    const { error, value } = schema.validate(config, { allowUnknown: true });
 
     if (error)
       throw new Error(`Config validation error: ${error.message}`);
