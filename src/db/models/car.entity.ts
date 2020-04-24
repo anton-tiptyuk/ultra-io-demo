@@ -14,7 +14,7 @@ import { Owner } from './owner.entity';
 @Entity()
 // @Index('uq_box_title_lower', { synchronize: false })
 export class Car {
-  @PrimaryColumn()
+  @PrimaryColumn({ length: 40 })
   id: string;
 
   @ManyToOne(() => Manufacturer, { onDelete: 'CASCADE', nullable: false })

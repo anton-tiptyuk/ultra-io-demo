@@ -6,7 +6,7 @@ import {
 
 @Entity()
 export class Manufacturer {
-  @PrimaryColumn()
+  @PrimaryColumn({ length: 40 })
   id: string;
 
   @Column()

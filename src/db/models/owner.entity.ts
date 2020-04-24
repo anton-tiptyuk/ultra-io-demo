@@ -10,7 +10,7 @@ import { Car } from './car.entity';
 
 @Entity()
 export class Owner {
-  @PrimaryColumn()
+  @PrimaryColumn({ length: 40 })
   id: string;
 
   @Column()
