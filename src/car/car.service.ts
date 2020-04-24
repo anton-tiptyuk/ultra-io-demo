@@ -11,6 +11,11 @@ export class CarService extends TypeOrmCrudService<Car> {
     super(repo);
   }
 
+  async getManufacturer(carId: string) {
+    const car = await this.repo.findOneOrFail(carId, { relations: ['manufacturer'] });
+    return car.manufacturer;
+  }
+
   decidePagination() {
     return false;
   }
