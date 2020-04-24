@@ -10,7 +10,7 @@ export class CreateCarsAndOwners implements Seeder {
     const carFactory = factory(Car)();
 
     const manufacturersGenerator = await (async () => {
-      const manufacturers = await factory(Manufacturer)().createMany(5);
+      const manufacturers = await factory(Manufacturer)().createMany(7);
 
       function* generator(): IterableIterator<Manufacturer> {
         let idx = manufacturers.length;
