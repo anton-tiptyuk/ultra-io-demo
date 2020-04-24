@@ -3,13 +3,13 @@ import {
   PrimaryColumn,
   Column,
   ManyToOne,
-  OneToMany,
+  ManyToMany,
 } from 'typeorm';
 
 import { decimalTransformer } from '../../common/util';
 
 import { Manufacturer } from './manufacturer.entity';
-import { CarToOwner } from './carToOwner.entity';
+import { Owner } from './owner.entity';
 
 @Entity()
 // @Index('uq_box_title_lower', { synchronize: false })
@@ -26,6 +26,6 @@ export class Car {
   @Column()
   firstRegistrationDate: Date;
 
-  @OneToMany(() => CarToOwner, carToOwners => carToOwners.car)
-  carToOwners: CarToOwner[];
+  @ManyToMany(() => Owner)
+  owners: Owner[];
 }
