@@ -57,7 +57,7 @@ export class ConfigService {
   }
 
   getOrmConfig() {
-    return <TypeOrmModuleOptions>{
+    return {
       dropSchema: false,
       entities: [`${dbDir}/models/**/*.entity${ext}`],
       migrations: [`${dbDir}/migrations/**/*${ext}`],
@@ -77,8 +77,7 @@ export class ConfigService {
       password: this.get(DATABASE_PASSWORD),
       synchronize: this.get<boolean>(DATABASE_SYNCHRONIZE),
       logging: this.get<boolean>(DATABASE_LOGGING),
-    };
+    } as TypeOrmModuleOptions;
   }
-
 
 }
