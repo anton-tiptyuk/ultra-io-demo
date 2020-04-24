@@ -63,7 +63,6 @@ export class ConfigService {
       migrations: [`${dbDir}/migrations/**/*${ext}`],
       cli: {
         migrationsDir: `${dbDir}/migrations`,
-        // entitiesDir: `${dbDir}/models`,
       },
       namingStrategy: new SnakeNamingStrategy(),
       seeds: [`${dbDir}/seeds/**/*.seed${ext}`],
