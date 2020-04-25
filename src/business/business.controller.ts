@@ -8,7 +8,9 @@ export class BusinessController {
 
   @Get('trigger-aging')
   async triggerAging() {
-    await this.service.performAging();
-    return 'aging performed';
+    return {
+      success: true,
+      entitiesAffected: await this.service.performAging(),
+    };
   }
 }

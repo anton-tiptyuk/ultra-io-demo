@@ -27,7 +27,6 @@ export class CarService extends TypeOrmCrudService<Car> {
     return car.manufacturer;
   }
 
-  // ["2019-04-25T13:14:33.514Z","2018-10-25T13:14:33.516Z"]
   performAging() {
     const dt12mon = dayjs().subtract(12, 'month').toISOString();
     const dt18mon = dayjs().subtract(18, 'month').toISOString();
@@ -35,7 +34,7 @@ export class CarService extends TypeOrmCrudService<Car> {
     return Promise.all([
       this.carToOwnerRepo.delete({ purchaseDate: LessThan(dt18mon) }),
       this.repo.update(
-        { firstRegistrationDate: Between(dt12mon, dt18mon) },
+        { firstRegistrationDate: Between(dt18mon, dt12mon) },
         { price: () => 'price * 0.8' }
       )
     ]);
