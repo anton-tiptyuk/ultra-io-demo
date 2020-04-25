@@ -20,6 +20,7 @@ import { CarService } from './car.service';
       field: 'id',
     },
   },
+  routes: { exclude: ['createManyBase', 'replaceOneBase'] },
 })
 @Controller('car')
 export class CarController implements CrudController<Car> {
