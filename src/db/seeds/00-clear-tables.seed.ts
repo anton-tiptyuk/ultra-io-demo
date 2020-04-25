@@ -8,7 +8,7 @@ export class ClearTables implements Seeder {
       "car",
       "manufacturer",
       "owner",
-      "owner_cars_car"
+      "car_to_owner"
     `);
   }
 }
