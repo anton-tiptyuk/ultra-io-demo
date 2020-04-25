@@ -20,3 +20,104 @@ Object {
   "statusCode": 400,
 }
 `;
+
+exports[`Car Controller should fetch car 1`] = `
+Object {
+  "id": "none",
+  "price": 100,
+}
+`;
+
+exports[`Car Controller should fetch car 2`] = `
+Array [
+  Object {
+    "options": Object {
+      "params": Object {
+        "id": Object {
+          "field": "id",
+          "primary": true,
+          "type": "string",
+        },
+      },
+      "query": Object {
+        "alwaysPaginate": false,
+        "join": Object {
+          "manufacturer": Object {
+            "eager": true,
+          },
+        },
+      },
+      "routes": Object {
+        "createManyBase": Object {
+          "decorators": Array [],
+          "interceptors": Array [],
+        },
+        "createOneBase": Object {
+          "decorators": Array [],
+          "interceptors": Array [],
+          "returnShallow": false,
+        },
+        "deleteOneBase": Object {
+          "decorators": Array [],
+          "interceptors": Array [],
+          "returnDeleted": false,
+        },
+        "exclude": Array [
+          "createManyBase",
+          "replaceOneBase",
+        ],
+        "getManyBase": Object {
+          "decorators": Array [],
+          "interceptors": Array [],
+        },
+        "getOneBase": Object {
+          "decorators": Array [],
+          "interceptors": Array [],
+        },
+        "replaceOneBase": Object {
+          "allowParamsOverride": false,
+          "decorators": Array [],
+          "interceptors": Array [],
+          "returnShallow": false,
+        },
+        "updateOneBase": Object {
+          "allowParamsOverride": false,
+          "decorators": Array [],
+          "interceptors": Array [],
+          "returnShallow": false,
+        },
+      },
+    },
+    "parsed": Object {
+      "authPersist": undefined,
+      "cache": undefined,
+      "fields": Array [],
+      "filter": Array [],
+      "join": Array [],
+      "limit": undefined,
+      "offset": undefined,
+      "or": Array [],
+      "page": undefined,
+      "paramsFilter": Array [
+        Object {
+          "field": "id",
+          "operator": "$eq",
+          "value": "random-id-value",
+        },
+      ],
+      "search": Object {
+        "$and": Array [
+          undefined,
+          Object {
+            "id": Object {
+              "$eq": "random-id-value",
+            },
+          },
+          Object {},
+        ],
+      },
+      "sort": Array [],
+    },
+  },
+]
+`;

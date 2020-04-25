@@ -3,18 +3,21 @@ import { INestApplication } from '@nestjs/common';
 
 import * as supertest from 'supertest';
 
+import { Car } from '../db/models';
 import { CarController } from './car.controller';
 import { CarService } from './car.service';
 
 const carServiceMock = {
   getManufacturer: () => undefined,
   createOne: () => undefined,
+  getOne: () => undefined,
 };
 
 const spies = {
   carService: {
     getManufacturer: jest.spyOn(carServiceMock, 'getManufacturer'),
     createOne: jest.spyOn(carServiceMock, 'createOne'),
+    getOne: jest.spyOn(carServiceMock, 'getOne'),
   },
 };
 
@@ -100,6 +103,18 @@ describe('Car Controller', () => {
         .expect(400);
       expect(body).toMatchSnapshot();
     });
+  });
+
+  it('should fetch car', async () => {
+    spies.carService.getOne.mockImplementation(async () => {
+      const result = new Car();
+      result.price = 100;
+      result.id = 'none';
+      return result;
+    });
+    const { body } = await request().get('/car/random-id-value').expect(200);
+    expect(body).toMatchSnapshot();
+    expect(spies.carService.getOne.mock.calls[0]).toMatchSnapshot();
   });
 
 });
