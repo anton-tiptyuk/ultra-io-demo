@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Business Controller should trigger car and owner aging 1`] = `
+Object {
+  "entitiesAffected": "any kind of result service returns",
+  "success": true,
+}
+`;

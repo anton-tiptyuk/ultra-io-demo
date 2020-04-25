@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BusinessService should perform aging 1`] = `
+Array [
+  8,
+  2,
+  13,
+]
+`;
+
+exports[`BusinessService should perform aging 2`] = `
+Array [
+  Array [
+    "not exists (select 1 from car_to_owner where car_to_owner.owner_id = owner.id)",
+  ],
+]
+`;
