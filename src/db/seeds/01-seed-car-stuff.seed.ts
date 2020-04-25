@@ -5,7 +5,7 @@ import { Connection } from 'typeorm/connection/Connection';
 import { Manufacturer, Car, Owner, CarToOwner } from '../models';
 
 const MANUFACTURERS_NUMBER = 7;
-const CAR_NUMBER = 30;
+const CAR_NUMBER = 40;
 const MAX_CAR_OWNERS = 5;
 
 export class CreateCarsAndOwners implements Seeder {
@@ -45,7 +45,7 @@ export class CreateCarsAndOwners implements Seeder {
         const car2owner = new CarToOwner();
         car2owner.car = car;
         car2owner.owner = owner;
-        car2owner.purchaseDate = faker.date.past();
+        car2owner.purchaseDate = faker.date.past(5);
         return car2owner;
       }));
     }));
