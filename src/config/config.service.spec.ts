@@ -4,7 +4,7 @@ import { ConfigService } from './config.service';
 describe('ConfigService', () => {
   let service: ConfigService;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [ConfigService],
     }).compile();
@@ -15,4 +15,15 @@ describe('ConfigService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should implement .getOrmConfig()', () => {
+    expect(typeof service.getOrmConfig()).toEqual('object');
+  });
+
+  it('should fail to validate wrong config', () => {
+    const v = ConfigService['validateConfig'];
+    const validationCall = () => v({ any: 'value' });
+    expect(validationCall).toThrowErrorMatchingSnapshot();
+  });
+
 });
