@@ -11,6 +11,15 @@ import { CarService } from './car.service';
       manufacturer: { eager: true },
     },
   },
+  params: {
+    id: {
+      // type: 'uuid',
+      // though i seed UIDs for all entitites, the task says ID fields should be string
+      type: 'string',
+      primary: true,
+      field: 'id',
+    },
+  },
 })
 @Controller('car')
 export class CarController implements CrudController<Car> {
