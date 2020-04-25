@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Car Controller checks for CRUD POST /car should reject invalid request (bad price - string) 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": Array [
+    "price must be a number conforming to the specified constraints",
+  ],
+  "statusCode": 400,
+}
+`;
+
+exports[`Car Controller checks for CRUD POST /car should reject invalid request (no manufacturer) 1`] = `
+Object {
+  "error": "Bad Request",
+  "message": Array [
+    "manufacturer must be an object",
+    "manufacturer should not be empty",
+  ],
+  "statusCode": 400,
+}
+`;
