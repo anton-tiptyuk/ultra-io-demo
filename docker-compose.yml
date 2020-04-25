@@ -1,0 +1,25 @@
+ultra-io-demo:
+  build: .
+  working_dir:
+    /usr/src/app/
+  links:
+    - postgres:postgres
+  command:
+    bash -c "cd /usr/src/app/ && npm run db migration:run && npx nest start"
+  ports:
+    - 3000:3000
+  environment:
+    DATABASE_PORT: 5432
+    DATABASE_HOST: postgres
+    DATABASE_NAME: ultra_io
+    DATABASE_USERNAME: ultra_io
+    DATABASE_PASSWORD: ultra_io
+
+postgres:
+  image: postgres:10
+  ports:
+    - 5432:5432
+  environment:
+    POSTGRES_DB: ultra_io
+    POSTGRES_USER: ultra_io
+    POSTGRES_PASSWORD: ultra_io
