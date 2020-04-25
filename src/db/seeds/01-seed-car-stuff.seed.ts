@@ -45,7 +45,7 @@ export class CreateCarsAndOwners implements Seeder {
         const car2owner = new CarToOwner();
         car2owner.car = car;
         car2owner.owner = owner;
-        car2owner.purchaseDate = faker.date.past(5);
+        car2owner.purchaseDate = faker.date.past(3);
         return car2owner;
       }));
     }));
