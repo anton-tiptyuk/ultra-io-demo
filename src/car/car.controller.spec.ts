@@ -58,7 +58,7 @@ describe('Car Controller', () => {
   describe('checks for CRUD POST /car', () => {
     const createOneResult = { dummy: 'result' };
 
-    const subject = (data: Object) => request().post('/car').send(data);
+    const subject = (data: Record<string, any>) => request().post('/car').send(data);
 
     beforeEach(() => {
       spies.carService.createOne.mockImplementation(async () => createOneResult);

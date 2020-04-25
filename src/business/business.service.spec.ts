@@ -6,8 +6,8 @@ import { CarService } from '../car/car.service';
 
 import { BusinessService } from './business.service';
 
-const carServiceFake = { performAging: () => { } };
-const ownerRepoWhereFake = { where: () => { } };
+const carServiceFake = { performAging: () => undefined };
+const ownerRepoWhereFake = { where: () => undefined };
 let service: BusinessService;
 
 describe('BusinessService', () => {
@@ -31,7 +31,7 @@ describe('BusinessService', () => {
       ],
     }).compile();
 
-    service = module.get<BusinessService>(BusinessService);
+    service = module.get(BusinessService);
   });
 
   it('should be defined', () => {

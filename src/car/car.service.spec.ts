@@ -32,8 +32,8 @@ describe('CarService', () => {
   beforeAll(async () => {
     const blankHandler = () => undefined;
     // Base TypeOrmCrudService<> constructor pacifier
-    (<any>TypeOrmCrudService.prototype).onInitMapEntityColumns = blankHandler;
-    (<any>TypeOrmCrudService.prototype).onInitMapRelations = blankHandler;
+    (TypeOrmCrudService.prototype as any).onInitMapEntityColumns = blankHandler;
+    (TypeOrmCrudService.prototype as any).onInitMapRelations = blankHandler;
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [

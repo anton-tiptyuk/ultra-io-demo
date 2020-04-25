@@ -69,13 +69,13 @@ class BaseExceptionFilter implements ExceptionFilter {
 @Catch(HttpException)
 class HttpExceptionFilter extends BaseExceptionFilter {
   getCustomStatus(exception: Error) {
-    return (<HttpException>exception).getStatus();
+    return (exception as HttpException).getStatus();
   }
 
   getResponse(defaultResponse: IResponse, exception: Error) {
     const { timestamp, path } = defaultResponse;
     return Object.assign(
-      (<HttpException>exception).getResponse(),
+      (exception as HttpException).getResponse(),
       { timestamp, path }
     );
   }
