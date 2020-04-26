@@ -2,11 +2,10 @@ import {
   Entity,
   PrimaryColumn,
   Column,
-  ManyToMany,
-  JoinTable,
+  OneToMany,
 } from 'typeorm';
 
-import { Car } from './car.entity';
+import { CarToOwner } from './carToOwner.entity';
 
 @Entity()
 export class Owner {
@@ -16,10 +15,6 @@ export class Owner {
   @Column()
   name: string;
 
-  @Column()
-  purchaseDate: Date;
-
-  @ManyToMany(() => Car)
-  @JoinTable()
-  cars: Car[];
+  @OneToMany(() => CarToOwner, carToOwners => carToOwners.owner)
+  carToOwners: CarToOwner[];
 }
